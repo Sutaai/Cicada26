@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DetachHead/basedpyright/678687b4984307493cecb28448f9b946cab07ba9/packages/vscode-pyright/schemas/pyrightconfig.schema.json",
+  "include": [
+    "apps/server/cicada26"
+  ],
+  "executionEnvironments": [
+    {
+      "root": "apps/server",
+      "pythonVersion": "3.13",
+    }
+  ],
+  "reportAny": "none",
+  "stubPath": "apps/server/typings",
+  "allowedUntypedLibraries": ["scalar_fastapi"]
+}

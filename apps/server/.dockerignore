@@ -1,0 +1,5 @@
+.venv/
+__venv__/
+__pycache__/
+**/*.pyi
+.pdm-python

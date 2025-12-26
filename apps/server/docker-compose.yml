@@ -1,0 +1,7 @@
+services:
+  db:
+    image: postgres:17-alpine
+
+  app:
+    build:
+      context: .

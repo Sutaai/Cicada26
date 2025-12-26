@@ -1,0 +1,39 @@
+[project]
+name = "cicada26-server"
+description = "Default template for PDM package"
+authors = [
+    {name = "Sutaai", email = "sutaai@proton.me"},
+]
+dependencies = ["fastapi[standard-no-fastapi-cloud-cli]>=0.124.4", "pydantic-settings>=2.12.0", "scalar-fastapi>=1.5.0", "tortoise-orm[accel,asyncpg]", "aiofiles>=25.1.0"]
+requires-python = ">=3.13"
+readme = "README.md"
+license = { file = "./LICENSE" }
+dynamic = ["version"]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.basedpyright]
+include = ["cicada26"]
+allowedUntypedLibraries = ["scalar_fastapi"]
+
+[tool.pdm]
+distribution = false
+version = { source = "file", path = "cicada26/const.py" }
+
+[tool.pdm.scripts]
+dev = "fastapi dev cicada26"
+format = {composite = ["ruff check --select I --fix", "ruff format cicada26 --target-version py313 --line-length 99"]}
+lint = "ruff check cicada26"
+typecheck = "basedpyright cicada26"
+"typecheck:ty" = "ty check cicada26"
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.36.1",
+    "ruff>=0.14.9",
+    "pytest>=9.0.2",
+    "httpx>=0.28.1",
+    "ty>=0.0.4",
+]
